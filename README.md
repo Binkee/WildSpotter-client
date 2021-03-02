@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Description
+                WILD SPOTTER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is about spotting the big five animals in europe. 
+You can pin the map where you spotted one of the animals
 
-## Available Scripts
+# User Stories
 
-In the project directory, you can run:
+404:  I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
 
-### `yarn start`
+Signup: I can sign up in the platform so that I can see the where about of my favorite Animals
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Login: As a user I can login to the platform so that I can see the where about of my favorite Ani
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Logout: As a user I can logout from the platform so no one else can use it
 
-### `yarn test`
+Add Animals As a user I can add a spotted animal so that I can share it with the community
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Add Tour to find animals .
 
-### `yarn build`
+Search Animals As a user I want to search animals by name so that i can see there last locations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Backlog
+User profile:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+see other users profile and see which aninals they spotted
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Geo Location:
 
-### `yarn eject`
+see the spotted animals in the map
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Client
+Routes
+/ - Homepage/signin
+/auth/signup - Signup form
+/auth/login - Login form
+/animals location of the spotted animals
+/animals/spotted - create a spotted animal
+/animals/:id - animals detail
+/profile/me - my details and spotted animals
+404
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Pages
+Home Page / Sign in page
+Sign Up Page
+Animals List Page (public only)
+Animals Create (user only)
+Animals Detail Page (public only)
+My Profile Page (user only)
+Edit Profile Page
+404 Page (public)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Components
+NavBar
+NewsFeed
+Maps
+Profile
+Tours
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Server
 
-## Learn More
+User model
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+username - String // required
+email - String // required & unique
+password - String // required
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Animal model
+location string
+description string
+image string
+userId = string
+type of animal enum = bear, wolf, moose, lynx, bison,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Tours model
+name string
+description string
+userid string
+location string
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# API Endpoints/Backend Routes
+GET /auth/me
+POST /auth/signup
+body:
+    username
+    email
+    password
+POST /auth/login
+body:
+username
+password
+POST /auth/logout
+body: (empty)
+POST /user/me/favorite
+body:
+restaurantId
+DELETE /user/me/favorite/:restaurantId
+body: (empty)
+GET /restaurant
+POST /restaurant
+body:
+name
+phone
+address
+GET /restaurant/:id

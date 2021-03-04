@@ -44,7 +44,25 @@ code {
 	align-content: stretch;
   text-align: center;
 }
+.addAnimal {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+}
 
+.tour{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+}
 .navbar{
   background-color: blueviolet;
   width: 100%;
@@ -52,4 +70,16 @@ code {
 
 .wolfnav{
   height: 60px
+}
+
+h2{
+  font-family: 'Dosis', sans-serif;
+}
+
+p h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.Mapcontainer{
+  width: 500px;
 }

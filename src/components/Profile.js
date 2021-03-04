@@ -1,25 +1,36 @@
 import React, { Component } from 'react'
 import NavBar from './NavBar'
 import {Redirect} from 'react-router-dom'
+import MyMap from './MyMap'
+import {Link} from 'react-router-dom'
+import AddAnimal from './AddAnimal'
+
 export default class Profile extends Component {
 
     
 
     render() {
-       /* if(!this.props.loggedInUser){
+        if(!this.props.loggedInUser){
+            console.log('Redirecting from profile')
             return <Redirect to={"/"}/>
-        }*/
+        }
         return (
             <div className="profile">
                 
-                {
-                    this.props.loggedInUser ? <NavBar /> : null
-                }
+               
                 <h2>Profile Page</h2>
-                <button className="btn btn-primary">Add Animal</button>
-                <button className="btn btn-primary">Add Tour</button>
-                <h4>Maps of last seen Animals</h4>
+                
+                <h6>Last spotted animals</h6>
+                <MyMap/>
 
+                <Link to="/tour">
+                        <div className="btn btn-primary">Add Tour</div>
+                </Link>
+               
+                <Link to="/add">
+                        <div className="btn btn-primary">Add Animal</div>
+                </Link>
+                
             </div>
         )
     }

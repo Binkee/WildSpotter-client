@@ -7,8 +7,10 @@ import Profile from "./components/Profile";
 import axios from "axios";
 import config from "./config";
 import NavBar from "./components/NavBar"
-
- class App extends React.Component {
+import AddAnimal from './components/AddAnimal'
+import Tour from './components/Tour'
+ 
+class App extends React.Component {
   state = {
     loggedInUser: null,
     error: null,
@@ -17,19 +19,20 @@ import NavBar from "./components/NavBar"
   handleSignIn = (event) => {
     event.preventDefault();
     let user = {
-      username: event.target.username.value,
+      email: event.target.email.value,
       password: event.target.password.value,
     };
-    axios.post(`${config.API_URL}/api/signIn`, user)
+    console.log('Coming here')
+    axios.post(`${config.API_URL}/api/signIn`, user, {withCredentials: true})
       .then((response) => {
-        console.log(response.data)
+        console.log(`signin data`, response.data)
         this.setState(
           {
             loggedInUser: response.data,
             
           },
           () => {
-            this.props.history.push("/");
+            this.props.history.push("/profile");
           }
         );
       })
@@ -50,6 +53,7 @@ import NavBar from "./components/NavBar"
     };
     axios.post(`${config.API_URL}/api/signup`, user)
       .then((response) => {
+        console.log(response.data)
         this.setState(
           {
             loggedInUser: response.data,
@@ -67,12 +71,28 @@ import NavBar from "./components/NavBar"
       });
   };
 
+  handleLogout = () => {
+  
+    axios.post(`${config.API_URL}/api/logout`, {}, {withCredentials: true})
+    .then(() => {
+        this.setState({
+          loggedInUser: null
+        }, () => {
+          this.props.history.push('/')
+        })
+    })
+  
+   }
+  
   render() {
     return (
       <div>
+         {
+          this.state.loggedInUser ? <NavBar {...this.props} /> : null
+         }
         <Switch>
           <Route exact path="/" render={(routeProps) => {
-              return <Home signIn={this.handleSignIn} {...routeProps} />;
+              return <Home signIn={this.handleSignIn} error={this.state.error}  {...routeProps} />;
             }}
           />
           <Route path="/signup" render={(routeProps) => {
@@ -80,9 +100,18 @@ import NavBar from "./components/NavBar"
             }}
           />
           <Route path="/profile" render={(routeProps) => {
-              return <Profile loggedInUser={this.state.loggedInUser}/>;
+              return <Profile logout={this.handleLogout} loggedInUser={this.state.loggedInUser}{...routeProps} />;
             }}
           />
+          <Route path="/add" render={(routeProps) => {
+              return <AddAnimal/>;
+            }}
+          />
+
+          <Route path="/tour" render={(routeProps) => {
+              return <Tour/>;
+            }}
+          />    
         </Switch>
       </div>
     );

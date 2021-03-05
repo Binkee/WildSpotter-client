@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import axios from "axios";
@@ -14,6 +15,7 @@ class App extends React.Component {
   state = {
     loggedInUser: null,
     error: null,
+    animal: null,
   };
 
   handleSignIn = (event) => {
@@ -81,14 +83,52 @@ class App extends React.Component {
           this.props.history.push('/')
         })
     })
-  
+   }
+
+   handleAddAnimal = (event, myAnimal) => {
+     event.preventDefault()
+     let animal = {
+      animal: myAnimal,
+      location: event.target.location.value,
+      description: event.target.description.value,
+      image: event.target.image.value
+    };
+    axios.post(`${config.API_URL}/api/add`, animal, {withCredentials: true})
+    .then((response) => {
+        this.setState({
+          animal:response.data
+        }, () => {
+          this.props.history.push('/profile')
+        })
+    })
+  }
+
+  handleAddTour = (event) => {
+    event.preventDefault()
+    let tour = {
+      name: event.target.name.value,
+      location: event.target.location.value,
+      description: event.target.description.value,
+    };
+    axios.post(`${config.API_URL}/api/tour`, tour, {withCredentials: true})
+    .then((response) => {
+        this.setState({
+          tour:response.data
+        }, () => {
+          this.props.history.push('/profile')
+        })
+    })
+  }
+
+   handleSearch = () => {
+
    }
   
   render() {
     return (
       <div>
          {
-          this.state.loggedInUser ? <NavBar {...this.props} /> : null
+          this.state.loggedInUser ? <NavBar search={this.handleSearch} {...this.props} /> : null
          }
         <Switch>
           <Route exact path="/" render={(routeProps) => {
@@ -104,12 +144,12 @@ class App extends React.Component {
             }}
           />
           <Route path="/add" render={(routeProps) => {
-              return <AddAnimal/>;
+              return <AddAnimal addAnimal={this.handleAddAnmial}/>;
             }}
           />
 
           <Route path="/tour" render={(routeProps) => {
-              return <Tour/>;
+              return <Tour addTour={this.handleAddTour}/>;
             }}
           />    
         </Switch>

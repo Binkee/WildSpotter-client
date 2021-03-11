@@ -7,6 +7,7 @@ export default class AddAnimal extends Component {
     state =  {
         animal: null,
         location: [],
+        tourId: null
     }
 
    handleChange = (event) => {
@@ -20,6 +21,16 @@ export default class AddAnimal extends Component {
        console.log(event.target.value)
    }
 
+   handleTourChange = (event) => {
+
+    this.setState(
+        {
+          tourId: event.target.value,
+        },
+        
+      );
+       console.log(event.target.value)
+   }
 //    handlechange event for location 
 handleLocation =   (location) =>{
     this.setState({
@@ -28,18 +39,20 @@ handleLocation =   (location) =>{
 }
 
     render() {
-        let marker = 'https://cdn.imgbin.com/20/19/14/imgbin-computer-icons-bear-bear-sRLtrQuaJT8Q6vXipnz4JXGq3.jpg'
-        if (this.state.animal == 'bear') {
-            marker =  'https://cdn.imgbin.com/20/19/14/imgbin-computer-icons-bear-bear-sRLtrQuaJT8Q6vXipnz4JXGq3.jpg'
+        let marker = 'bear.png'
+        if (this.state.animal === 'bear') {
+            marker =  'bear.png'
         } else if(this.state.animal== 'wolf'){
-            marker ='https://www.mcicon.com/wp-content/uploads/2020/12/Animal_Wolf_1-copy-28.jpg'
+            marker =  'Wolf2.png'
         } else if (this.state.animal== 'moose'){
-            marker = 'https://previews.123rf.com/images/ylivdesign/ylivdesign1703/ylivdesign170301640/73291430-moose-icon-flat-style.jpg'
+            marker = 'Moose.png'
         } else if (this.state.animal == 'lynx'){
-            marker = 'https://i.pinimg.com/originals/63/41/95/634195beb4e9835ea630d665caa32d38.jpg'
+            marker = 'lynx1.png'
         } else if (this.state.animal == 'bison'){
             marker = 'https://image.flaticon.com/icons/png/512/2247/2247411.png'
         }
+
+        console.log(this.props.allTours)
 
     return (
         
@@ -47,7 +60,7 @@ handleLocation =   (location) =>{
         <Link to="/profile"><img src="x-circle.svg"></img></Link>  
 
         <MyMap animalMarker={ marker} handleLocation={this.handleLocation} />
-        <form onSubmit={ (event) => { this.props.addAnimal(event, this.state.animal, this.state.location) } }>
+        <form onSubmit={ (event) => { this.props.addAnimal(event, this.state.animal, this.state.location, this.state.tourId) } }>
          <div >
             <select onChange={this.handleChange} name="animal" class="form-select" aria-label="Default select example">
             <option selected>Animal</option>
@@ -58,6 +71,15 @@ handleLocation =   (location) =>{
             <option value="lynx">Lynx</option>
             </select>
           </div>
+
+          <select className="btn btn-danger dropdown-toggle form-select" onChange={this.handleTourChange} name="tours" aria-label="Default select example">
+            <option selected>Tour</option>
+            {
+              this.props.allTours.map((singleTour) => {
+                return <option value={singleTour._id}>{singleTour.name}</option>
+              })
+            }
+            </select>
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label">Location</label>
             <p>lattitude = {this.state.location[0]}</p>

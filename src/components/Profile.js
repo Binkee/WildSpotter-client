@@ -11,7 +11,8 @@ import ProfileMap from './ProfileMap'
 
 export default class Profile extends Component {
 state = { 
-    allAnimals: []
+    allAnimals: [],
+    allTours: []
 }
     componentDidMount(){
         axios.get(`${config.API_URL}/api/animals`,  {withCredentials: true})
@@ -22,9 +23,18 @@ state = {
                 })
             })
             .catch(()=>{
-
+            })
+            axios.get(`${config.API_URL}/api/tours`,  {withCredentials: true})
+            .then((response)=>{
+                console.log("response.data")
+                this.setState({
+                    allTours: response.data
+                })
+            })
+            .catch(()=>{
             })
     }
+
     
 
     render() {
@@ -39,9 +49,9 @@ state = {
                 <h2>Welcome: {this.props.loggedInUser.username}</h2>
                 
                 
-                <News allAnimals={this.state.allAnimals}/>
+                <News allAnimals={this.state.allAnimals} allTours={this.state.allTours}/>
 
-               <ProfileMap allAnimals={this.state.allAnimals}/> 
+               <ProfileMap allAnimals={this.state.allAnimals} searchAnimal={this.props.searchAnimal}/> 
 
                 <Link to="/tour">
                         <div className="btn btn-primary">Add Tour</div>

@@ -34,6 +34,9 @@ code {
 	align-items: center;
 	align-content: stretch;
   text-align: center;
+  border: 0.5px solid;
+  border-radius: 15px;
+  box-shadow: 6px 5px 6px 5px rgba(20, 19, 19, 0.533);
 }
 .profile {
   display: flex;

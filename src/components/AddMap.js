@@ -6,7 +6,7 @@ import L from 'leaflet';
 
 function MyMap(props) {
 
-  const [location, updateLocation] = useState( [62.33, 26.39])
+  const [location, updateLocation] = useState( [56.26, 9.50])
 
 
 
@@ -22,14 +22,14 @@ function MyMap(props) {
     
   const BearLogo = new L.Icon({
         iconUrl: props.animalMarker,
-        iconSize: [44, 34],
+        iconSize: [44, 38],
   });
 
   console.log(location)
 
   return (
     <div>
-        <MapContainer style={{width: '400px', height: '300px'}}  center={location} zoom={13} scrollWheelZoom={false}>
+        <MapContainer style={{width: '750px', height: '500px'}}  center={location} zoom={3} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

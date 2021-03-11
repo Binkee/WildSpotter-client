@@ -13,17 +13,15 @@ export default class NavBar extends Component {
             <div className="navbar">
                 <img className="wolfnav" src="wolf.png" alt="wolf" ></img>
                 <div className="btn-group">
-  <button type="button" className="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Search for Animals
-  </button>
-  <div  className="dropdown-menu">
-    <a  className="dropdown-item">Wolf</a>
-    <a  className="dropdown-item">Bear</a>
-    <a  className="dropdown-item">Bison</a>
-    <a  className="dropdown-item">Lynx</a>
-    <a  className="dropdown-item">Moose</a>
-    
-  </div>
+  
+  <select className="btn btn-danger dropdown-toggle form-select" onChange={this.props.search} name="animal" aria-label="Default select example">
+            <option selected>Animal</option>
+            <option value="wolf">Wolf</option>
+            <option value="bear">Bear</option>
+            <option value="bison">Bison</option>
+            <option value="moose">Moose</option>
+            <option value="lynx">Lynx</option>
+            </select>
 </div>
                 <button onClick={this.props.logout} className="btn btn-primary">Log out</button>
             </div>

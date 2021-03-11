@@ -7,32 +7,24 @@ export default class ProfileMap extends Component {
 
     render() {
         const {allAnimals} = this.props
-
-        let marker = 'https://image.flaticon.com/icons/png/512/2247/2247411.png'
-
-        if (this.props.allAnimals.animal === 'bear') {
-            marker =  'https://cdn.imgbin.com/20/19/14/imgbin-computer-icons-bear-bear-sRLtrQuaJT8Q6vXipnz4JXGq3.jpg'
-        } else if(this.props.allAnimals.animal === 'wolf'){
-            marker ='https://www.mcicon.com/wp-content/uploads/2020/12/Animal_Wolf_1-copy-28.jpg'
-        } else if (this.props.allAnimals.animal === 'moose'){
-            marker = 'https://previews.123rf.com/images/ylivdesign/ylivdesign1703/ylivdesign170301640/73291430-moose-icon-flat-style.jpg'
-        } else if (this.props.allAnimals.animal === 'lynx'){
-            marker = 'https://i.pinimg.com/originals/63/41/95/634195beb4e9835ea630d665caa32d38.jpg'
-        } else if (this.props.allAnimals.animal === 'bison'){
-            marker = 'https://image.flaticon.com/icons/png/512/2247/2247411.png'
+     console.log(this.props.searchAnimal)
+       
+        let filteredAnimals = this.props.allAnimals;
+        if(this.props.searchAnimal){
+            filteredAnimals = this.props.allAnimals.filter((singleAnimal) => {
+                return singleAnimal.animal == this.props.searchAnimal
+            })
+        
         }
 
-        console.log( 'This are all animals ->', this.props.allAnimals)
-        const Logo = new L.Icon({
-            iconUrl: marker,
-            iconSize: [44, 34],
-      });
-
-    const location = [`50.3785`, `14.9706` ]
+        if(this.props.searchAnimal == "Animal"){
+            filteredAnimals = this.props.allAnimals
+        }
+    const location = [56.26, 9.50]
 
         return (
             <div>
-        <MapContainer style={{width: '400px', height: '300px'}}  center={location} zoom={33} scrollWheelZoom={false}>
+        <MapContainer style={{width: '750px', height: '500px'}}  center={location} zoom={4} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -40,18 +32,36 @@ export default class ProfileMap extends Component {
           {
               //Map over the animal array this.props.allAnimals -> render each element location
 
-              allAnimals.map((animal, index) =>{
-                  return <Marker icon={Logo} position={[`${animal.location[0]}`, `${animal.location[1]}`]}></Marker>
+              filteredAnimals.map((animal, index) =>{
+                let marker = 'https://image.flaticon.com/icons/png/512/2247/2247411.png'
+
+                if (animal.animal === 'bear') {
+                    marker =  'bear.png'
+                } else if(animal.animal === 'wolf'){
+                    marker ='Wolf2.png'
+                } else if (animal.animal === 'moose'){
+                    marker = 'Moose.png'
+                } else if (animal.animal === 'lynx'){
+                    marker = 'lynx1.png'
+                } else if (animal.animal === 'bison'){
+                    marker = 'https://image.flaticon.com/icons/png/512/2247/2247411.png'
+                }
+        
+                
+                const Logo = new L.Icon({
+                    iconUrl: marker,
+                    iconSize: [44, 34],
+              });
+                  return <Marker icon={Logo} position={[`${animal.location[0]}`, `${animal.location[1]}`]}><Popup>
+                 {animal.description} <br />.
+                </Popup></Marker>
               })
 
           }
 
-          <Marker icon={Logo} position={location}>
+
           
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+           
         </MapContainer>
             </div>
         )

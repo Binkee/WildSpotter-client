@@ -4,15 +4,15 @@ import config from '../config'
 import {Link} from 'react-router-dom'
 export default class EditForm extends Component {
     state = {
-        animal: {}
+        tour: {}
       }
     
       componentDidMount(){
-        let animalId = this.props.match.params.animalId
-        axios.get(`${config.API_URL}/api/animalDetail/${animalId}`)
+        let tourId = this.props.match.params.tourId
+        axios.get(`${config.API_URL}/api/tourDetail/${tourId}`)
           .then((response) => {
             this.setState({
-              animal: response.data
+              tour: response.data
             })
           })
           .catch(() => {
@@ -23,21 +23,21 @@ export default class EditForm extends Component {
       handleNameChange = (event) => {
         let text = event.target.value
         console.log(text)
-        let cloneAnimal = JSON.parse(JSON.stringify(this.state.animal))
-        cloneAnimal.name = text
+        let clonedTour = JSON.parse(JSON.stringify(this.state.tour))
+        clonedTour.name = text
     
         this.setState({
-          animal: cloneAnimal
+          tour: clonedTour
         })
       }
     
       handleDescChange = (event) => {
         let text = event.target.value
-        let cloneAnimal = JSON.parse(JSON.stringify(this.state.animal))
-        cloneAnimal.description = text
+        let clonedTour = JSON.parse(JSON.stringify(this.state.tour))
+        clonedTour.description = text
     
         this.setState({
-          animal: cloneAnimal
+          tour: clonedTour
         })
       }
     render() {
@@ -45,10 +45,10 @@ export default class EditForm extends Component {
             <div>
     
                 
-                <input type="text" onChange={this.handleNameChange} value={this.state.animal.animal}/>
-                <input type="text" onChange={this.handleDescChange} value={this.state.animal.description}/>
+                <input type="text" onChange={this.handleNameChange} value={this.state.tour.name}/>
+                <input type="text" onChange={this.handleDescChange} value={this.state.tour.description}/>
                 
-                <Link to="/profile">  <button onClick={ () => { this.props.onEdit(this.state.animal) } }  >Submit</button></Link>
+                <Link to="/profile">  <button onClick={ () => { this.props.onEdit(this.state.tour) } }  >Submit</button></Link>
                
             </div>
         )

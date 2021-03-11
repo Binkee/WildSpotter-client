@@ -24,7 +24,7 @@ export default class ProfileMap extends Component {
 
         return (
             <div>
-        <MapContainer style={{width: '750px', height: '500px'}}  center={location} zoom={4} scrollWheelZoom={false}>
+        <MapContainer style={{width: '350px', height: '250px'}}  center={location} zoom={4} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

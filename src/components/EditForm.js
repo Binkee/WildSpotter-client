@@ -42,13 +42,13 @@ export default class EditForm extends Component {
       }
     render() {
         return (
-            <div>
+            <div className="editAnimal">
     
                 
-                <input type="text" onChange={this.handleNameChange} value={this.state.animal.animal}/>
-                <input type="text" onChange={this.handleDescChange} value={this.state.animal.description}/>
+                <input  type="text" onChange={this.handleNameChange} value={this.state.animal.animal}/>
+                <input  type="text" onChange={this.handleDescChange} value={this.state.animal.description}/>
                 
-                <Link to="/profile">  <button onClick={ () => { this.props.onEdit(this.state.animal) } }  >Submit</button></Link>
+                <Link to="/profile">  <button className="btn btn-primary"onClick={ () => { this.props.onEdit(this.state.animal) } }  >Submit</button></Link>
                
             </div>
         )

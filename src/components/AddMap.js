@@ -29,7 +29,7 @@ function MyMap(props) {
 
   return (
     <div>
-        <MapContainer style={{width: '750px', height: '500px'}}  center={location} zoom={3} scrollWheelZoom={false}>
+        <MapContainer style={{width: '350px', height: '250px'}}  center={location} zoom={3} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -37,9 +37,7 @@ function MyMap(props) {
           <MyComponent position={location} />
           <Marker icon={BearLogo} position={location}>
           
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+            
           </Marker>
         </MapContainer>
       </div>

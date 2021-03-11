@@ -8,7 +8,7 @@ export default class Home extends Component {
         const {signIn, error} = this.props
         return (
             <div className="signIn"> 
-                <h2>Wild Spotting</h2>
+                <h2>Wild Spotter</h2>
                 <img className="wolf" src="wolf.png"alt="wolf" ></img>
                 <h6>Do you know where you can find the European fabulous 5?</h6>
                 <p>Log in to find them!</p>
@@ -23,10 +23,10 @@ export default class Home extends Component {
                     <input type="password" name="password" className="form-control" id="exampleInputPassword1" />
                 </div>
                     {/* <Link to="/profile"> */}
-                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary mySignUpBtn">Login</button>
                     {/* </Link> */}
                     <Link to="/signup">
-                        <div className="btn btn-primary">Sign Up</div>
+                        <div className="btn btn-primary mySignUpBtn ">Sign Up</div>
                     </Link>
                 </form>
             </div>

@@ -48,19 +48,21 @@ state = {
                
                 <h2>Welcome: {this.props.loggedInUser.username}</h2>
                 
-                
+                <div>
                 <News allAnimals={this.state.allAnimals} allTours={this.state.allTours}/>
 
                <ProfileMap allAnimals={this.state.allAnimals} searchAnimal={this.props.searchAnimal}/> 
-
+                <div className='buttons-profile'>
                 <Link to="/tour">
-                        <div className="btn btn-primary">Add Tour</div>
+                        <div className="btn btn-primary mySignUpBtn">Add Tour</div>
                 </Link>
                
                 <Link to="/add">
-                        <div className="btn btn-primary">Add Animal</div>
+                        <div className="btn btn-primary mySignUpBtn">Add Animal</div>
                 </Link>
-                
+                </div>
+
+                </div>
             </div>
         )
     }

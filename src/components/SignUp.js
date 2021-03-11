@@ -6,10 +6,12 @@ export default class SignUp extends Component {
     render() {
         const {signUp, error} = this.props
         return (
+
+            
             <div className="signUp">
-                
+               
                 <h2>Wild Spotting</h2>
-              <Link to="/"><img src="x-circle.svg"></img></Link>  
+                 
                 <img className="wolf" src="wolf.png" ></img>
                 <h6>Sign up to find the fabulous 5</h6>
                 
@@ -27,10 +29,10 @@ export default class SignUp extends Component {
                     <input type="password" name="password" className="form-control" id="exampleInputPassword1" />
                 </div>
                 {error ? <div>{error.errorMessage}</div> : null}
-                <button type="submit" className="btn btn-primary">Sign Up</button>
-                  
+                <button type="submit" className="btn btn-primary mySignUpBtn">Sign Up</button>
+                 
                     
-                </form>
+                </form><Link to="/"><img src="x-circle.svg"></img></Link> 
             </div>
         )
     }

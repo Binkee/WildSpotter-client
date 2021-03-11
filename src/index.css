@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(54, 54, 42);
 }
 
 code {
@@ -15,7 +16,11 @@ code {
 .wolf {
   height: 150px;
 }
+body{
+  background:white
 
+  !important;
+}
 .signIn {
   display: flex;
 	flex-direction: column;
@@ -34,9 +39,6 @@ code {
 	align-items: center;
 	align-content: stretch;
   text-align: center;
-  border: 0.5px solid;
-  border-radius: 15px;
-  box-shadow: 6px 5px 6px 5px rgba(20, 19, 19, 0.533);
 }
 .profile {
   display: flex;
@@ -67,7 +69,7 @@ code {
   text-align: center;
 }
 .navbar{
-  background-color: blueviolet;
+  background-color: rgb(93, 145, 89);
   width: 100%;
 }
 
@@ -85,4 +87,109 @@ p h6 {
 
 .Mapcontainer{
   width: 500px;
+}
+
+.leaflet-container {
+  background-color: black;
+}
+
+.x {
+  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: stretch;
+  
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: rgb(93, 145, 89) !important;
+  border-color: black !important;
+}
+
+.animalDetail {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+}
+.editAnimal {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+}
+
+.tourDetail{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+}
+.btn,.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus  {
+  background-color: #5d9159 !important;
+  border-color: black !important;
+  
+  
+}
+
+.deleteEdit{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}
+
+p{
+  text-decoration: none !important;
+}
+
+.news{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.button-profile{
+  display: flex;
+  justify-content: space-between;
+}
+
+.editTour{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+  text-align: center;
+
+}
+
+.mySignUpBtn{
+  width: 150px;
+  margin: 10px;
 }

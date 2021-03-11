@@ -132,7 +132,6 @@ class App extends React.Component {
       animal: myAnimal,
       location,
       description: event.target.description.value,
-      image: event.target.image.value,
       tourId
     };
 
@@ -150,7 +149,6 @@ class App extends React.Component {
     event.preventDefault()
     let tour = {
       name: event.target.name.value,
-      location: event.target.location.value,
       description: event.target.description.value,
     };
     axios.post(`${config.API_URL}/api/tours`, tour, {withCredentials: true})

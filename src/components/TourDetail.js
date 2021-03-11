@@ -32,13 +32,16 @@ export default class tourDetail extends Component {
         */
 
         return (
-            <div>
-              <ProfileMap allAnimals={this.state.animals}/>
+            <div className="tourDetail">
+              
                 <h4>Details</h4>
                 <p>Tour: {this.state.tour.name}</p>
                 <p>Description: {this.state.tour.description}</p>
-              <Link to={`/tourDetail/${this.state.tour._id}/edit`}><button className="btn btn-primary">Edit</button></Link>  
-                <Link to="/profile"><button onClick={() => {this.props.delete(this.state.tour._id)}} className="btn btn-primary">Delete</button></Link>
+              
+                <ProfileMap allAnimals={this.state.animals}/>
+                <div className="deleteEdit"><Link to={`/tourDetail/${this.state.tour._id}/edit`}><button className="btn btn-primary">Edit</button></Link>  
+                <Link to="/profile"><button onClick={() => {this.props.delete(this.state.tour._id)}} className="btn btn-primary">Delete</button></Link></div>
+                
             </div>
         )
     }

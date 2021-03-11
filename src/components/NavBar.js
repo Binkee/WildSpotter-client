@@ -15,7 +15,7 @@ export default class NavBar extends Component {
                 <div className="btn-group">
   
   <select className="btn btn-danger dropdown-toggle form-select" onChange={this.props.search} name="animal" aria-label="Default select example">
-            <option selected>Animal</option>
+            <option selected>Search</option>
             <option value="wolf">Wolf</option>
             <option value="bear">Bear</option>
             <option value="bison">Bison</option>

@@ -17,17 +17,22 @@ export default class News extends Component {
         let newTour =  clonedTour.slice(0, 3)
     
         return (
-            <div><h6>Last spotted animals</h6>
-                {newAnimal.map((animal)=>{
-                    return <Link to={`/animalDetail/${animal._id}`}><p>{animal.animal}</p></Link>
-                })}
+            <div className="news">
                 
-                <h6>Last added tours</h6>
-                {newTour.map((tour)=>{
-                    return <Link to={`/tourDetail/${tour._id}`}><p>{tour.name}</p></Link>
-                    
-                })}
-              
+                    <div>
+                        <h6>Last spotted animals</h6>
+                        {newAnimal.map((animal)=>{
+                            return <Link to={`/animalDetail/${animal._id}`}><p>{animal.animal}</p></Link>
+                        })}
+                    </div>
+                    <div>
+                        <h6>Last added tours</h6>
+                        {newTour.map((tour)=>{
+                            return <Link to={`/tourDetail/${tour._id}`}><p>{tour.name}</p></Link>
+                            
+                        })}
+                    </div>
+                
             </div>
         )
     }

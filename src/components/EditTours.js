@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import config from '../config'
 import {Link} from 'react-router-dom'
+
 export default class EditForm extends Component {
     state = {
         tour: {}
@@ -11,8 +12,9 @@ export default class EditForm extends Component {
         let tourId = this.props.match.params.tourId
         axios.get(`${config.API_URL}/api/tourDetail/${tourId}`)
           .then((response) => {
+            console.log(response.data)
             this.setState({
-              tour: response.data
+              tour: response.data.detail
             })
           })
           .catch(() => {
@@ -42,7 +44,7 @@ export default class EditForm extends Component {
       }
     render() {
         return (
-            <div>
+            <div className="editTour">
     
                 
                 <input type="text" onChange={this.handleNameChange} value={this.state.tour.name}/>

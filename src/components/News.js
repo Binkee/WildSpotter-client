@@ -22,13 +22,13 @@ export default class News extends Component {
                     <div>
                         <h6>Last spotted animals</h6>
                         {newAnimal.map((animal)=>{
-                            return <Link to={`/animalDetail/${animal._id}`}><p>{animal.animal}</p></Link>
+                            return <Link to={`/animalDetail/${animal._id}`}><p className="link">{animal.animal}</p></Link>
                         })}
                     </div>
                     <div>
                         <h6>Last added tours</h6>
                         {newTour.map((tour)=>{
-                            return <Link to={`/tourDetail/${tour._id}`}><p>{tour.name}</p></Link>
+                            return <Link to={`/tourDetail/${tour._id}`}><p className="link">{tour.name}</p></Link>
                             
                         })}
                     </div>

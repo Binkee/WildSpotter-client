@@ -47,10 +47,10 @@ export default class EditForm extends Component {
             <div className="editTour">
     
                 
-                <input type="text" onChange={this.handleNameChange} value={this.state.tour.name}/>
-                <input type="text" onChange={this.handleDescChange} value={this.state.tour.description}/>
+                <input type="text" className="form-label" onChange={this.handleNameChange} value={this.state.tour.name}/>
+                <input type="text" className="form-control form-label" onChange={this.handleDescChange} value={this.state.tour.description}/>
                 
-                <Link to="/profile">  <button onClick={ () => { this.props.onEdit(this.state.tour) } }  >Submit</button></Link>
+                <Link to="/profile">  <button className="btn btn-primary mySignUpBtn" onClick={ () => { this.props.onEdit(this.state.tour) } }  >Submit</button></Link>
                
             </div>
         )

@@ -58,7 +58,7 @@ handleLocation =   (location) =>{
         
       <div className="addAnimal">
         <h4>Hey Wild Spotter</h4>
-        <h6>Pin the animals that you spotted here on the map!</h6>
+        <h6>Pin the animals that you spotted on the map!</h6>
         
         <form onSubmit={ (event) => { this.props.addAnimal(event, this.state.animal, this.state.location, this.state.tourId) } }>
          <div >
@@ -82,15 +82,16 @@ handleLocation =   (location) =>{
             </select>
         
 
+          
+          <MyMap animalMarker={ marker} handleLocation={this.handleLocation} />
           <div className="mb-3">
             <label for="exampleInputPassword1"  className="form-label"></label>
             <input name="description" placeholder="Description" type="text" className="form-control" id="exampleInputPassword1"/>
           </div>
-          <MyMap animalMarker={ marker} handleLocation={this.handleLocation} />
           <button type="submit" className="btn btn-primary mySignUpBtn">Submit</button>
           
           </form>
-          <Link to="/profile"><img src="x-circle.svg"></img></Link> 
+          <Link to="/profile"><img className="xSize" src="x-circle.svg"></img></Link> 
           {/* <button type="submit" className="btn btn-primary"> Edit </button>
           <button onClick={()=>{this.props.delete(this.state.animal._id)}} type="submit" className="btn btn-primary">Delete </button>
         </form> */}

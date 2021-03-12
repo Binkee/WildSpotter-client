@@ -10,7 +10,7 @@ export default class SignUp extends Component {
             
             <div className="signUp">
                
-                <h2>Wild Spotting</h2>
+                <h2>Wild Spotter</h2>
                  
                 <img className="wolf" src="wolf.png" ></img>
                 <h6>Sign up to find the fabulous 5</h6>
@@ -32,7 +32,7 @@ export default class SignUp extends Component {
                 <button type="submit" className="btn btn-primary mySignUpBtn">Sign Up</button>
                  
                     
-                </form><Link to="/"><img src="x-circle.svg"></img></Link> 
+                </form><Link to="/"><img className="xSize" src="x-circle.svg"></img></Link> 
             </div>
         )
     }

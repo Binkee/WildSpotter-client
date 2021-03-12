@@ -46,7 +46,7 @@ state = {
             <div className="profile">
                 
                
-                <h2>Welcome: {this.props.loggedInUser.username}</h2>
+                <h2 className="h2Margin">Welcome: {this.props.loggedInUser.username}</h2>
                 
                 <div>
                 <News allAnimals={this.state.allAnimals} allTours={this.state.allTours}/>

@@ -39,8 +39,8 @@ export default class tourDetail extends Component {
                 <p>Description: {this.state.tour.description}</p>
               
                 <ProfileMap allAnimals={this.state.animals}/>
-                <div className="deleteEdit"><Link to={`/tourDetail/${this.state.tour._id}/edit`}><button className="btn btn-primary">Edit</button></Link>  
-                <Link to="/profile"><button onClick={() => {this.props.delete(this.state.tour._id)}} className="btn btn-primary">Delete</button></Link></div>
+                <div className="deleteEdit"><Link to={`/tourDetail/${this.state.tour._id}/edit`}><button className="btn btn-primary mySignUpBtn">Edit</button></Link>  
+                <Link to="/profile"><button  onClick={() => {this.props.delete(this.state.tour._id)}} className="btn btn-primary mySignUpBtn">Delete</button></Link></div>
                 
             </div>
         )

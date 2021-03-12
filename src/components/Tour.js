@@ -5,10 +5,11 @@ export default class Tour extends Component {
         return (
             <div className="tour">
                
-            
+            <h4>Hey Wild Spotter</h4>
+            <h6>Add here the hike description where you've spotted animals</h6>
             <form onSubmit={this.props.addTour}>
                 <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label"> Name </label>
+            <label for="exampleInputPassword1" className="form-label"> Tour name </label>
             <input
               name="name"
               type="text"
@@ -32,7 +33,7 @@ export default class Tour extends Component {
           <button type="submit" className="btn btn-primary mySignUpBtn"> Submit </button>
           
           </form>
-          <Link to="/profile"><img src="x-circle.svg"></img></Link> 
+          <Link to="/profile"><img className="xSize" src="x-circle.svg"></img></Link> 
             </div>
         )
     }

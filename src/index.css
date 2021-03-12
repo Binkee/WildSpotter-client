@@ -14,7 +14,7 @@ code {
 }
 
 .wolf {
-  height: 150px;
+  height: 220px;
 }
 body{
   background:white
@@ -57,6 +57,7 @@ body{
 	align-items: center;
 	align-content: stretch;
   text-align: center;
+  margin-top: 20px;
 }
 
 .tour{
@@ -192,4 +193,29 @@ p{
 .mySignUpBtn{
   width: 150px;
   margin: 10px;
+}
+
+.xSize {
+  height: 30px
+}
+input {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+.link {
+  text-decoration: none  !important;
+  color: green;
+}
+
+.h2Margin{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
